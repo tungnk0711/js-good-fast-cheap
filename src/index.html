@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Good Cheap</title>
+    <meta name="description" content="You want a Fast, Good, and Cheap project?">
+
+
+</head>
+
+<body>
+
+
+<script>
+
+    var div = document.createElement('div');
+    div.id = 'container';
+    div.style.width = '500px';
+    div.style.height = '300px';
+    div.style.border = '1px solid #333';
+    div.style.backgroundColor = '#f5f5f5';
+
+    var txtFast = document.createElement('input');
+    txtFast.type = 'checkbox';
+    txtFast.id = 'fast';
+
+    var lblFast = document.createElement('label');
+    lblFast.innerHTML = 'fast';
+
+    var txtGood = document.createElement('input');
+    txtGood.type = 'checkbox';
+    txtGood.id = 'good';
+
+    var lblGood = document.createElement('label');
+    lblGood.innerHTML = 'good';
+
+    var txtCheap = document.createElement('input');
+    txtCheap.type = 'checkbox';
+    txtCheap.id = 'cheap';
+
+    var lblCheap = document.createElement('label');
+    lblCheap.innerHTML = 'cheap';
+
+    div.appendChild(txtFast);
+    div.appendChild(lblFast);
+    div.appendChild(txtGood);
+    div.appendChild(lblGood);
+    div.appendChild(txtCheap);
+    div.appendChild(lblCheap);
+
+    document.getElementsByTagName('body')[0].appendChild(div);
+
+
+    var checked = [];
+    var chk = document.querySelectorAll('input[type="checkbox"]');
+
+    [].forEach.call(chk, function (checkbox) {
+        checkbox.addEventListener('change', function (e) {
+
+            if (checkbox.checked && checked.length === 2) {
+                var uncheckTarget = checked[Math.floor(Math.random() * checked.length)];
+                uncheckTarget.checked = false;
+            }
+            checked = document.querySelectorAll('input[type="checkbox"]:checked');
+        });
+    });
+
+
+</script>
+
+
+</body>
+</html>
